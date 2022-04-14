@@ -1,1 +1,1 @@
-web: gunicorn Game_Booking1.wsgi --log-file-
+web: gunicorn users.wsgi --log-file-
