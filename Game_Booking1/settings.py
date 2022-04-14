@@ -27,7 +27,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 # Application definition
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.admin',
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 ROOT_URLCONF = 'Game_Booking1.urls'
 
 TEMPLATES = [
