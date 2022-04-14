@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l627r5gcck#0#xpoo3g2hg99!^-i4n62ps+$+ra%zg!lgyb4d0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -84,23 +84,23 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
 
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'bookingdb',
-    #     'USER': 'arvind',
-    #     'PASSWORD': 'arvind22',
-    #     'HOST': 'localhost',
-    #     'PORT': 5432,
-    # }
-    'default':
-       {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'd8677glu1jsehu',
-            'USER': 'yazzspngrhurps',
-            'PASSWORD': '0432011b7ba93fb3346b425e7cee6272f2773f6fd0cabc7d39482d545aa7b68e',
-            'HOST': 'ec2-44-194-4-127.compute-1.amazonaws.com',
-            'PORT': 5432,
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bookingdb',
+        'USER': 'arvind',
+        'PASSWORD': 'arvind22',
+        'HOST': 'localhost',
+        'PORT': 5432,
+    }
+    # 'default':
+    #    {
+    #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #         'NAME': 'd8677glu1jsehu',
+    #         'USER': 'yazzspngrhurps',
+    #         'PASSWORD': '0432011b7ba93fb3346b425e7cee6272f2773f6fd0cabc7d39482d545aa7b68e',
+    #         'HOST': 'ec2-44-194-4-127.compute-1.amazonaws.com',
+    #         'PORT': 5432,
+    #     }
 
 
 }
@@ -125,6 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -141,6 +142,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=10),
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
