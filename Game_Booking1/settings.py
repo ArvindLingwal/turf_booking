@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+
+from datetime import timedelta
 import os
 from pathlib import Path
 
@@ -81,14 +83,7 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
 
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'bookingdb',
-    #     'USER': 'arvind',
-    #     'PASSWORD': 'arvind22',
-    #     'HOST': 'localhost',
-    #     'PORT': 5432,
-    # }
+  
     'default':
         {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -98,6 +93,7 @@ DATABASES = {
             'HOST': 'ec2-44-194-4-127.compute-1.amazonaws.com',
             'PORT': 5432,
         }
+
 
 }
 
@@ -135,6 +131,17 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=10),
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
