@@ -26,7 +26,7 @@ django-doctor==2.6.0
 django-timezone-field==4.2.3
 djangorestframework==3.13.1
 dparse==0.5.1
-generics==3.4.0
+generics==2.0.0
 greenlet==1.1.2
 gunicorn==20.1.0
 idna==3.3
