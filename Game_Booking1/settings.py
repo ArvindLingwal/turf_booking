@@ -9,12 +9,11 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-l627r5gcck#0#xpoo3g2hg99!^-i4n62ps+$+ra%zg!lgyb4d0
 DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
-
 
 # Application definition
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
@@ -74,7 +72,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Game_Booking1.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -93,7 +90,7 @@ DATABASES = {
     #     'PORT': 5432,
     # }
     'default':
-       {
+        {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'd8677glu1jsehu',
             'USER': 'yazzspngrhurps',
@@ -102,9 +99,7 @@ DATABASES = {
             'PORT': 5432,
         }
 
-
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -124,7 +119,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -136,11 +130,11 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
