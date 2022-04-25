@@ -17,6 +17,9 @@ class UserTable(AbstractUser):
     last_name = models.CharField(max_length=150, validators=[RegexValidator(r'^[a-zA-Z]+$',
                                                                            message='Must use ALPHA CHARACTERS only')])
     mobile_number = models.PositiveBigIntegerField(unique=True, blank=False, null=True)
+    deactivate = models.BooleanField(default=False)
+    verified = models.BooleanField(default=False)
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects_manager = CustomManager()

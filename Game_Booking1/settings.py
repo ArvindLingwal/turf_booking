@@ -46,6 +46,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -54,6 +55,7 @@ MIDDLEWARE = [
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 ROOT_URLCONF = 'Game_Booking1.urls'
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
@@ -78,21 +80,21 @@ WSGI_APPLICATION = 'Game_Booking1.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 
   
-    'default':
-        {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'd8677glu1jsehu',
-            'USER': 'yazzspngrhurps',
-            'PASSWORD': '0432011b7ba93fb3346b425e7cee6272f2773f6fd0cabc7d39482d545aa7b68e',
-            'HOST': 'ec2-44-194-4-127.compute-1.amazonaws.com',
-            'PORT': 5432,
-        }
+    # 'default':
+    #     {
+    #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #         'NAME': 'd8677glu1jsehu',
+    #         'USER': 'yazzspngrhurps',
+    #         'PASSWORD': '0432011b7ba93fb3346b425e7cee6272f2773f6fd0cabc7d39482d545aa7b68e',
+    #         'HOST': 'ec2-44-194-4-127.compute-1.amazonaws.com',
+    #         'PORT': 5432,
+    #     }
 
 
 }
